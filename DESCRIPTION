@@ -1,5 +1,5 @@
 Package: algoliar
-Title: Simple Access to Algolia REST API
+Title: Simple Access to Algolia Search REST API
 Version: 0.0.0.9000
 Authors@R: 
     c(person(given = "Michael",
