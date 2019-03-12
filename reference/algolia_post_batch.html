@@ -125,15 +125,11 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>algolia_post_batch</span>(<span class='no'>batch_json</span>, <span class='no'>config</span>)</pre>
+    <pre class="usage"><span class='fu'>algolia_post_batch</span>(<span class='no'>config</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>batch_json</th>
-      <td><p>as retrieved by prepare_batch_json()</p></td>
-    </tr>
     <tr>
       <th>config</th>
       <td><p>as retrieved by create_config()</p></td>
@@ -157,8 +153,7 @@ in case of sufficient rights of the provided API key (see:
                         <span class='kw'>api_key</span> <span class='kw'>=</span> <span class='st'>"your_algolia_api_key"</span>,
                         <span class='kw'>index_name</span> <span class='kw'>=</span> <span class='st'>"your_algolia_index_name"</span>,
                         <span class='kw'>path_index_json</span> <span class='kw'>=</span> <span class='st'>"path_to_your_index.json"</span>)
-<span class='no'>batch_json</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='prepare_batch_json.html'>prepare_batch_json</a></span>(<span class='no'>config</span>)
-<span class='fu'>algolia_post_batch</span>(<span class='no'>batch_json</span>, <span class='no'>config</span>)
+<span class='fu'>algolia_post_batch</span>(<span class='no'>config</span>)
 <span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
