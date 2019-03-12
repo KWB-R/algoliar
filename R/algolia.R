@@ -252,7 +252,7 @@ algolia_post_batch <- function(config) {
 
   tmp <- httr::POST(sprintf("%s/batch", config$api_url),
                     config = config$api_config,
-                    body = json,
+                    body = batch_json,
                     verbose = TRUE)
 
   httr::content(tmp)
