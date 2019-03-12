@@ -1,0 +1,76 @@
+---
+title: "Tutorial"
+author: "Michael Rustler"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Tutorial}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+
+## Define config
+
+```{r eval = FALSE}
+config <- algoliar::create_config(app_id = "your_algolia_application_id",
+                                  api_key = "your_algolia_api_key",
+                                  index_name = "your_algolia_index_name",
+                                  path_index_json = "path_to_your_index.json")
+
+```
+
+## Get
+
+```{r eval = FALSE}
+algoliar::algolia_get(config)
+
+```
+
+## Content
+
+Content of "index.json" at Algolia as data.frame.
+
+```{r eval = FALSE}
+algoliar::algolia_content(config)
+```
+
+## Prepare Batch 
+
+Preparing index.json so that it is accepted by Algolia for batch post (for 
+details see: https://www.algolia.com/doc/api-reference/api-methods/add-objects/)
+
+```{r eval = FALSE}
+batch_json <- algoliar::prepare_batch_json(config)
+```
+
+## Run Batch 
+
+For deleting/updating "index.json" at Algolia (for details see: https://www.algolia.com/doc/api-reference/api-methods/add-objects/)
+
+
+```{r eval = FALSE}
+algoliar::algolia_post_batch(batch_json)
+```
+
+This function is useful if the "index.json" upload to Algolia should be 
+automated (i.e. after creating a new hugo academic website)
+
+## Delete Index
+
+For completly deleting an Algolia "index_name" run: 
+
+```{r eval = FALSE}
+algoliar::algolia_delete_index(config)
+```
+
+This means that it needs to be created manually again from the Algolia dashboard, 
+since a creation method is not implemented in the R Package

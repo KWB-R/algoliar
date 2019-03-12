@@ -1,0 +1,29 @@
+Package: algoliar
+Title: Simple Access to Algolia REST API
+Version: 0.0.0.9000
+Authors@R: 
+    c(person(given = "Michael",
+             family = "Rustler",
+             role = c("aut", "cre"),
+             email = "michael.rustler@kompetenz-wasser.de",
+             comment = c(ORCID = "0000-0003-0647-7726")),
+      person(given = "Kompetenzzentrum Wasser Berlin gGmbH (KWB)",
+             role = "cph"))
+Description: Simple Access to Algolia REST API
+    (https://www.algolia.com/doc/rest-api/search/).
+License: MIT + file LICENSE
+URL: https://github.com/KWB-R/algoliar
+BugReports: https://github.com/KWB-R/algoliar/issues
+Encoding: UTF-8
+LazyData: true
+Imports:
+    fs,
+    httr,
+    jsonlite,
+    RCurl
+Suggests: 
+    covr,
+    knitr,
+    rmarkdown
+RoxygenNote: 6.1.1
+VignetteBuilder: knitr
