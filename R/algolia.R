@@ -231,7 +231,7 @@ prepare_batch_json <- function(config, encoding = "UTF-8", ...) {
 
 #' Performs Algolia Post Batch
 #'
-#' @param json as retrieved by read_index_json()
+#' @param batch_json as retrieved by prepare_batch_json()
 #' @param config as retrieved by create_config()
 #' @return performs batch operation at provided Algolia url (config$api_url)
 #' in case of sufficient rights of the provided API key (see:
@@ -246,9 +246,9 @@ prepare_batch_json <- function(config, encoding = "UTF-8", ...) {
 #'                         index_name = "your_algolia_index_name",
 #'                         path_index_json = "path_to_your_index.json")
 #' batch_json <- prepare_batch_json(config)
-#' algolia_post_batch(batch_json)
+#' algolia_post_batch(batch_json, config)
 #' }
-algolia_post_batch <- function(json,
+algolia_post_batch <- function(batch_json,
                        config) {
 
   tmp <- httr::POST(sprintf("%s/batch", config$api_url),
