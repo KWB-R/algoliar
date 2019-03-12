@@ -4,11 +4,9 @@
 \alias{algolia_post_batch}
 \title{Performs Algolia Post Batch}
 \usage{
-algolia_post_batch(batch_json, config)
+algolia_post_batch(config)
 }
 \arguments{
-\item{batch_json}{as retrieved by prepare_batch_json()}
-
 \item{config}{as retrieved by create_config()}
 }
 \value{
@@ -25,8 +23,7 @@ config <- create_config(app_id = "your_algolia_application_id",
                         api_key = "your_algolia_api_key",
                         index_name = "your_algolia_index_name",
                         path_index_json = "path_to_your_index.json")
-batch_json <- prepare_batch_json(config)
-algolia_post_batch(batch_json, config)
+algolia_post_batch(config)
 }
 }
 \seealso{

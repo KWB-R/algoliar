@@ -58,7 +58,7 @@ For deleting/updating "index.json" at Algolia (for details see: https://www.algo
 
 
 ```{r eval = FALSE}
-algoliar::algolia_post_batch(batch_json, config)
+algoliar::algolia_post_batch(config)
 ```
 
 This function is useful if the "index.json" upload to Algolia should be 
