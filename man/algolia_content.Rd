@@ -4,10 +4,11 @@
 \alias{algolia_content}
 \title{Get Algolia "content"}
 \usage{
-algolia_content(config)
+algolia_content(config = create_config())
 }
 \arguments{
-\item{config}{config as retrieved by create_config()}
+\item{config}{config as retrieved by create_config() (default:
+create_config())}
 }
 \value{
 data.frame with content of Algolia index
@@ -17,10 +18,6 @@ Get Algolia "content"
 }
 \examples{
 \dontrun{
-config <- create_config(app_id = "your_algolia_application_id",
-                        api_key = "your_algolia_api_key",
-                        index_name = "your_algolia_index_name",
-                        path_index_json = "path_to_your_index.json")
-algolia_content(config)
+algolia_content()
 }
 }

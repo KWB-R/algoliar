@@ -4,10 +4,11 @@
 \alias{prepare_batch_json}
 \title{Pepare Batch Json}
 \usage{
-prepare_batch_json(config, encoding = "UTF-8", ...)
+prepare_batch_json(config = create_config(), encoding = "UTF-8", ...)
 }
 \arguments{
-\item{config}{config as retrieved by create_config()}
+\item{config}{config as retrieved by create_config() (default:
+create_config())}
 
 \item{encoding}{encoding (default: "UTF-8")}
 
@@ -18,10 +19,6 @@ Pepare Batch Json
 }
 \examples{
 \dontrun{
-config <- create_config(app_id = "your_algolia_application_id",
-                        api_key = "your_algolia_api_key",
-                        index_name = "your_algolia_index_name",
-                        path_index_json = "path_to_your_index.json")
-batch_json <- prepare_batch_json(config)
+batch_json <- prepare_batch_json()
 }
 }

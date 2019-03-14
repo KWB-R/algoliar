@@ -4,10 +4,11 @@
 \alias{algolia_post_batch}
 \title{Performs Algolia Post Batch}
 \usage{
-algolia_post_batch(config)
+algolia_post_batch(config = create_config())
 }
 \arguments{
-\item{config}{as retrieved by create_config()}
+\item{config}{config as retrieved by create_config() (default:
+create_config())}
 }
 \value{
 performs batch operation at provided Algolia url (config$api_url)
@@ -19,11 +20,7 @@ Performs Algolia Post Batch
 }
 \examples{
 \dontrun{
-config <- create_config(app_id = "your_algolia_application_id",
-                        api_key = "your_algolia_api_key",
-                        index_name = "your_algolia_index_name",
-                        path_index_json = "path_to_your_index.json")
-algolia_post_batch(config)
+algolia_post_batch()
 }
 }
 \seealso{

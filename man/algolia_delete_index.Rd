@@ -4,10 +4,11 @@
 \alias{algolia_delete_index}
 \title{Delete Algolia Index}
 \usage{
-algolia_delete_index(config)
+algolia_delete_index(config = create_config())
 }
 \arguments{
-\item{config}{config as retrieved by create_config()}
+\item{config}{config as retrieved by create_config() (default:
+create_config())}
 }
 \value{
 deletes "index_name" (config$index_name) at Algolia URL (config$api_url)
@@ -18,11 +19,7 @@ Delete Algolia Index
 }
 \examples{
 \dontrun{
-config <- create_config(app_id = "your_algolia_application_id",
-                        api_key = "your_algolia_api_key",
-                        index_name = "your_algolia_index_name",
-                        path_index_json = "path_to_your_index.json")
-algolia_content(config)
+algolia_content()
 }
 }
 \seealso{

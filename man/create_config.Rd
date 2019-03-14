@@ -4,12 +4,14 @@
 \alias{create_config}
 \title{Create Algolia Configuration}
 \usage{
-create_config(app_id = Sys.getenv("algolia_app_id"),
+create_config(path_index_json = "public/index.json",
+  app_id = Sys.getenv("algolia_app_id"),
   api_key = Sys.getenv("algolia_api_key"),
-  index_name = Sys.getenv("algolia_index_name"),
-  path_index_json = "public/index.json")
+  index_name = Sys.getenv("algolia_index_name"))
 }
 \arguments{
+\item{path_index_json}{path to index.json (default: "public/index.json")}
+
 \item{app_id}{app_id Application ID. This is your unique application identifier.
 It's used to identify you when using Algolia's API. (see: create a API key
 with valid scope in the Algolia Dashboard), (default: Sys.getenv("algolia_app_id"))}
@@ -19,8 +21,6 @@ with valid scope in the Algolia Dashboard), (default: Sys.getenv("algolia_app_id
 
 \item{index_name}{name of Algolia index name (default:
 Sys.getenv("algolia_index_name"))}
-
-\item{path_index_json}{path to index.json (default: "public/index.json")}
 }
 \value{
 list with algolia config
@@ -30,10 +30,34 @@ Create Algolia Configuration
 }
 \examples{
 \dontrun{
-config <- create_config(app_id = "your_algolia_application_id",
+########################################################################
+### Option A) Interactive R Session
+########################################################################
+
+config <- create_config(path_index_json = "path_to_your_index.json",
+                        app_id = "your_algolia_application_id",
                         api_key = "your_algolia_api_key",
-                        index_name = "your_algolia_index_name",
-                        path_index_json = "path_to_your_index.json")
+                        index_name = "your_algolia_index_name")
+
+########################################################################
+### Option B) Environment variable
+########################################################################
+
+Sys.setenv(algolia_app_id = "your_algolia_application_id",
+           algolia_api_key = "your_algolia_api_key",
+           algolia_index_name = "your_algolia_index_name")
+
+
+### With default path to index.json ("public/index.json")
+### (i.e standard output path after running blogdown::build_site() for
+### theme hugo-academic (https://github.com/gcushen/hugo-academic/)
+
+config <- create_config()
+
+### With user defined path or url to index.json "public/index.json"
+
+config <- create_config(path_index_json = "https://mhugoacademicsite.de/index.json")
+
 }
 }
 \seealso{

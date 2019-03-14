@@ -1,5 +1,6 @@
 #' Create Algolia Configuration
 #'
+#' @param path_index_json path to index.json (default: "public/index.json")
 #' @param app_id app_id Application ID. This is your unique application identifier.
 #' It's used to identify you when using Algolia's API. (see: create a API key
 #' with valid scope in the Algolia Dashboard), (default: Sys.getenv("algolia_app_id"))
@@ -7,22 +8,45 @@
 #' <https://www.algolia.com/doc/api-client/methods/api-keys/>
 #' @param index_name name of Algolia index name (default:
 #' Sys.getenv("algolia_index_name"))
-#' @param path_index_json path to index.json (default: "public/index.json")
 #' @seealso <https://www.algolia.com/doc/guides/getting-started/quick-start/tutorials/getting-started-with-the-dashboard/>
 #' @return list with algolia config
 #' @importFrom httr add_headers
 #' @export
 #' @examples
 #' \dontrun{
-#' config <- create_config(app_id = "your_algolia_application_id",
+#' ########################################################################
+#' ### Option A) Interactive R Session
+#' ########################################################################
+#'
+#' config <- create_config(path_index_json = "path_to_your_index.json",
+#'                         app_id = "your_algolia_application_id",
 #'                         api_key = "your_algolia_api_key",
-#'                         index_name = "your_algolia_index_name",
-#'                         path_index_json = "path_to_your_index.json")
+#'                         index_name = "your_algolia_index_name")
+#'
+#' ########################################################################
+#' ### Option B) Environment variable
+#' ########################################################################
+#'
+#' Sys.setenv(algolia_app_id = "your_algolia_application_id",
+#'            algolia_api_key = "your_algolia_api_key",
+#'            algolia_index_name = "your_algolia_index_name")
+#'
+#'
+#' ### With default path to index.json ("public/index.json")
+#' ### (i.e standard output path after running blogdown::build_site() for
+#' ### theme hugo-academic (https://github.com/gcushen/hugo-academic/)
+#'
+#' config <- create_config()
+#'
+#' ### With user defined path or url to index.json "public/index.json"
+#'
+#' config <- create_config(path_index_json = "https://mhugoacademicsite.de/index.json")
+#'
 #'}
-create_config <- function(app_id = Sys.getenv("algolia_app_id"),
+create_config <- function(path_index_json = "public/index.json",
+                          app_id = Sys.getenv("algolia_app_id"),
                           api_key = Sys.getenv("algolia_api_key"),
-                          index_name = Sys.getenv("algolia_index_name"),
-                          path_index_json = "public/index.json") {
+                          index_name = Sys.getenv("algolia_index_name")) {
 
 
   list("path_index_json" = path_index_json,
@@ -39,37 +63,31 @@ create_config <- function(app_id = Sys.getenv("algolia_app_id"),
 
 #' Algolia "GET"
 #'
-#' @param config config as retrieved by create_config()
+#' @param config config as retrieved by create_config() (default:
+#' create_config())
 #' @export
 #' @importFrom httr GET
 #' @examples
 #' \dontrun{
-#' config <- create_config(app_id = "your_algolia_application_id",
-#'                         api_key = "your_algolia_api_key",
-#'                         index_name = "your_algolia_index_name",
-#'                         path_index_json = "path_to_your_index.json")
-#' algolia_get(config)
+#' algolia_get()
 #'}
-algolia_get <- function (config) {
+algolia_get <- function (config = create_config()) {
 
   httr::GET(url = config$api_url, config = config$api_config)
 }
 
 #' Get Algolia "content"
 #'
-#' @param config config as retrieved by create_config()
+#' @param config config as retrieved by create_config() (default:
+#' create_config())
 #' @return data.frame with content of Algolia index
 #' @export
 #' @importFrom httr content GET
 #' @examples
 #' \dontrun{
-#' config <- create_config(app_id = "your_algolia_application_id",
-#'                         api_key = "your_algolia_api_key",
-#'                         index_name = "your_algolia_index_name",
-#'                         path_index_json = "path_to_your_index.json")
-#' algolia_content(config)
+#' algolia_content()
 #'}
-algolia_content <- function (config) {
+algolia_content <- function (config = create_config()) {
 
 response <- httr::content(x = algolia_get(config),
                           as="text")
@@ -79,7 +97,8 @@ jsonlite::fromJSON(response)
 
 #' Delete Algolia Index
 #'
-#' @param config config as retrieved by create_config()
+#' @param config config as retrieved by create_config() (default:
+#' create_config())
 #' @return deletes "index_name" (config$index_name) at Algolia URL (config$api_url)
 #' in case that provided API Key has sufficient rights!
 #' @export
@@ -87,13 +106,9 @@ jsonlite::fromJSON(response)
 #' @seealso  <https://www.algolia.com/doc/api-client/methods/api-keys/>
 #' @examples
 #' \dontrun{
-#' config <- create_config(app_id = "your_algolia_application_id",
-#'                         api_key = "your_algolia_api_key",
-#'                         index_name = "your_algolia_index_name",
-#'                         path_index_json = "path_to_your_index.json")
-#' algolia_content(config)
+#' algolia_content()
 #'}
-algolia_delete_index <- function(config) {
+algolia_delete_index <- function(config = create_config()) {
 
   httr::DELETE(url = config$api_url,
                config = config$api_config)
@@ -109,7 +124,8 @@ algolia_delete_index <- function(config) {
 #' \dontrun{
 #' check_if_path_or_url(path = "public/index.json")
 #' }
-#'
+#' @keywords internal
+#' @noRd
 check_if_path_or_url <- function(path) {
 
   path_arg_name <- deparse(substitute(path))
@@ -176,14 +192,14 @@ read_index_list <- function(path = "public/index.json",
 #' @description prepare json for API endpoint "addObject"
 #' @param index_list as retrieved by read_index_list()
 #' @return list as required for API endpoint "addObject"
-#' @export
+#' @keywords internal
+#' @noRd
 #' @seealso <https://www.algolia.com/doc/api-reference/api-methods/add-objects/>
 #' @examples
 #' \dontrun{
 #' index_list <- read_index_list(path = "public/index.json")
 #' create_addObject(index_list)
 #' }
-#'
 create_addObject <- function(index_list) {
 
   lapply(seq_along(index_list), function(i)  {
@@ -203,18 +219,17 @@ create_addObject <- function(index_list) {
 
 #' Pepare Batch Json
 #'
-#' @param config config as retrieved by create_config()
+#' @param config config as retrieved by create_config() (default:
+#' create_config())
 #' @param encoding encoding (default: "UTF-8")
 #' @param ... additional arguments passed to jsonlite::read_json()
 #' @examples
 #' \dontrun{
-#' config <- create_config(app_id = "your_algolia_application_id",
-#'                         api_key = "your_algolia_api_key",
-#'                         index_name = "your_algolia_index_name",
-#'                         path_index_json = "path_to_your_index.json")
-#' batch_json <- prepare_batch_json(config)
+#' batch_json <- prepare_batch_json()
 #' }
-prepare_batch_json <- function(config, encoding = "UTF-8", ...) {
+#' @export
+prepare_batch_json <- function(config = create_config(),
+                               encoding = "UTF-8", ...) {
 
 
   index_list <- read_index_list(path = config$path_index_json,
@@ -231,7 +246,8 @@ prepare_batch_json <- function(config, encoding = "UTF-8", ...) {
 
 #' Performs Algolia Post Batch
 #'
-#' @param config as retrieved by create_config()
+#' @param config config as retrieved by create_config() (default:
+#' create_config())
 #' @return performs batch operation at provided Algolia url (config$api_url)
 #' in case of sufficient rights of the provided API key (see:
 #' <https://www.algolia.com/doc/api-client/methods/api-keys/>)
@@ -240,13 +256,9 @@ prepare_batch_json <- function(config, encoding = "UTF-8", ...) {
 #' @seealso <https://www.algolia.com/doc/rest-api/search/#batch-write-operations>
 #' @examples
 #' \dontrun{
-#' config <- create_config(app_id = "your_algolia_application_id",
-#'                         api_key = "your_algolia_api_key",
-#'                         index_name = "your_algolia_index_name",
-#'                         path_index_json = "path_to_your_index.json")
-#' algolia_post_batch(config)
+#' algolia_post_batch()
 #' }
-algolia_post_batch <- function(config) {
+algolia_post_batch <- function(config = create_config()) {
 
   batch_json <- prepare_batch_json(config)
 
