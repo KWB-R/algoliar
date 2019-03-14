@@ -18,9 +18,9 @@ knitr::opts_chunk$set(
 
 
 
-## Define config
+## Algolia Configuration
 
-### Interactive Usage
+### Interactive Use
 
 ```{r eval = FALSE}
 config <- algoliar::create_config(path_index_json = "path_to_your_index.json", 
@@ -30,7 +30,7 @@ config <- algoliar::create_config(path_index_json = "path_to_your_index.json",
 
 ```
 
-### Environment Variables
+### Continious Integration
 
 Using environment variables is necessary if continious integration services (e.g.
 [Travis](https://travis.org), [Appveyor](https://appveyor.com) or 
@@ -41,7 +41,6 @@ case you need to specify:
 - `algolia_index_name`: index name (created in Algolia dashboard)
 
 All three are defined / created in the [Algolia dashboard](https://www.algolia.com/doc/guides/getting-started/quick-start/tutorials/getting-started-with-the-dashboard/). 
-
 
 
 
