@@ -137,14 +137,15 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>prepare_batch_json</span>(<span class='no'>config</span>, <span class='kw'>encoding</span> <span class='kw'>=</span> <span class='st'>"UTF-8"</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>prepare_batch_json</span>(<span class='kw'>config</span> <span class='kw'>=</span> <span class='fu'><a href='create_config.html'>create_config</a></span>(), <span class='kw'>encoding</span> <span class='kw'>=</span> <span class='st'>"UTF-8"</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>config</th>
-      <td><p>config as retrieved by create_config()</p></td>
+      <td><p>config as retrieved by create_config() (default:
+create_config())</p></td>
     </tr>
     <tr>
       <th>encoding</th>
@@ -159,11 +160,7 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='no'>config</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='create_config.html'>create_config</a></span>(<span class='kw'>app_id</span> <span class='kw'>=</span> <span class='st'>"your_algolia_application_id"</span>,
-                        <span class='kw'>api_key</span> <span class='kw'>=</span> <span class='st'>"your_algolia_api_key"</span>,
-                        <span class='kw'>index_name</span> <span class='kw'>=</span> <span class='st'>"your_algolia_index_name"</span>,
-                        <span class='kw'>path_index_json</span> <span class='kw'>=</span> <span class='st'>"path_to_your_index.json"</span>)
-<span class='no'>batch_json</span> <span class='kw'>&lt;-</span> <span class='fu'>prepare_batch_json</span>(<span class='no'>config</span>)
+<span class='no'>batch_json</span> <span class='kw'>&lt;-</span> <span class='fu'>prepare_batch_json</span>()
 <span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
