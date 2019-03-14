@@ -100,20 +100,20 @@
 
     
     
-<div id="define-config" class="section level2">
+<div id="algolia-configuration" class="section level2">
 <h2 class="hasAnchor">
-<a href="#define-config" class="anchor"></a>Define config</h2>
-<div id="interactive-usage" class="section level3">
+<a href="#algolia-configuration" class="anchor"></a>Algolia Configuration</h2>
+<div id="interactive-use" class="section level3">
 <h3 class="hasAnchor">
-<a href="#interactive-usage" class="anchor"></a>Interactive Usage</h3>
+<a href="#interactive-use" class="anchor"></a>Interactive Use</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">config &lt;-<span class="st"> </span>algoliar<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/algoliar/topics/create_config">create_config</a></span>(<span class="dt">path_index_json =</span> <span class="st">"path_to_your_index.json"</span>, </a>
 <a class="sourceLine" id="cb1-2" data-line-number="2">                                  <span class="dt">app_id =</span> <span class="st">"your_algolia_application_id"</span>,</a>
 <a class="sourceLine" id="cb1-3" data-line-number="3">                                  <span class="dt">api_key =</span> <span class="st">"your_algolia_api_key"</span>,</a>
 <a class="sourceLine" id="cb1-4" data-line-number="4">                                  <span class="dt">index_name =</span> <span class="st">"your_algolia_index_name"</span>)</a></code></pre></div>
 </div>
-<div id="environment-variables" class="section level3">
+<div id="continious-integration" class="section level3">
 <h3 class="hasAnchor">
-<a href="#environment-variables" class="anchor"></a>Environment Variables</h3>
+<a href="#continious-integration" class="anchor"></a>Continious Integration</h3>
 <p>Using environment variables is necessary if continious integration services (e.g. <a href="https://travis.org">Travis</a>, <a href="https://appveyor.com">Appveyor</a> or <a href="https://about.gitlab.com/product/continuous-integration/">GitLab CI</a>). In this case you need to specify: - <code>algolia_app_id</code>: application id - <code>algolia_api_key</code>: api key with sufficient rights (created in Algolia dashboard) - <code>algolia_index_name</code>: index name (created in Algolia dashboard)</p>
 <p>All three are defined / created in the <a href="https://www.algolia.com/doc/guides/getting-started/quick-start/tutorials/getting-started-with-the-dashboard/">Algolia dashboard</a>.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"></a>
@@ -161,7 +161,7 @@ the website with <code>blogdown::build_site()</code>.</p>
       <h2 class="hasAnchor">
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-<li><a href="#define-config">Define config</a></li>
+<li><a href="#algolia-configuration">Algolia Configuration</a></li>
       <li><a href="#other-api-calls">Other API calls</a></li>
       <li><a href="#delete-index">Delete Index</a></li>
       </ul>
