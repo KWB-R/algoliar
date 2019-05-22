@@ -4,11 +4,14 @@
 \alias{algolia_post_batch}
 \title{Performs Algolia Post Batch}
 \usage{
-algolia_post_batch(config = create_config())
+algolia_post_batch(config = create_config(), threshold_kb = 10)
 }
 \arguments{
 \item{config}{config as retrieved by create_config() (default:
 create_config())}
+
+\item{threshold_kb}{(default: 10), 10 KB is threshold for free Algolia usage,
+20 KB for paid for details: https://www.algolia.com/doc/faq/basics/is-there-a-size-limit-for-my-index-records/}
 }
 \value{
 performs batch operation at provided Algolia url (config$api_url)

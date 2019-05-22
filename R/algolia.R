@@ -221,6 +221,8 @@ create_addObject <- function(index_list) {
 #'
 #' @param config config as retrieved by create_config() (default:
 #' create_config())
+#' @param threshold_kb  (default: 10), 10 KB is threshold for free Algolia usage,
+#' 20 KB for paid for details: https://www.algolia.com/doc/faq/basics/is-there-a-size-limit-for-my-index-records/
 #' @param encoding encoding (default: "UTF-8")
 #' @param ... additional arguments passed to jsonlite::read_json()
 #' @examples
@@ -229,11 +231,14 @@ create_addObject <- function(index_list) {
 #' }
 #' @export
 prepare_batch_json <- function(config = create_config(),
+                               threshold_kb = 10,
                                encoding = "UTF-8", ...) {
 
 
   index_list <- read_index_list(path = config$path_index_json,
                                 encoding = encoding, ...)
+
+  index_list <- check_threshold_kb(index_list, threshold_kb = threshold_kb)
 
   requests <- list("requests" = create_addObject(index_list))
 
@@ -248,6 +253,9 @@ prepare_batch_json <- function(config = create_config(),
 #'
 #' @param config config as retrieved by create_config() (default:
 #' create_config())
+#' @param threshold_kb  (default: 10), 10 KB is threshold for free Algolia usage,
+#' 20 KB for paid for details: https://www.algolia.com/doc/faq/basics/is-there-a-size-limit-for-my-index-records/
+#'
 #' @return performs batch operation at provided Algolia url (config$api_url)
 #' in case of sufficient rights of the provided API key (see:
 #' <https://www.algolia.com/doc/api-client/methods/api-keys/>)
@@ -258,9 +266,10 @@ prepare_batch_json <- function(config = create_config(),
 #' \dontrun{
 #' algolia_post_batch()
 #' }
-algolia_post_batch <- function(config = create_config()) {
+algolia_post_batch <- function(config = create_config(),
+                               threshold_kb = 10) {
 
-  batch_json <- prepare_batch_json(config)
+  batch_json <- prepare_batch_json(config, threshold_kb)
 
   tmp <- httr::POST(sprintf("%s/batch", config$api_url),
                     config = config$api_config,

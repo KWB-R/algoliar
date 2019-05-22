@@ -20,7 +20,8 @@ Imports:
     fs,
     httr,
     jsonlite,
-    RCurl
+    RCurl, 
+	stringr
 Suggests: 
     covr,
     knitr,

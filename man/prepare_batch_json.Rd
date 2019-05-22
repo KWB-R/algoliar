@@ -4,11 +4,15 @@
 \alias{prepare_batch_json}
 \title{Pepare Batch Json}
 \usage{
-prepare_batch_json(config = create_config(), encoding = "UTF-8", ...)
+prepare_batch_json(config = create_config(), threshold_kb = 10,
+  encoding = "UTF-8", ...)
 }
 \arguments{
 \item{config}{config as retrieved by create_config() (default:
 create_config())}
+
+\item{threshold_kb}{(default: 10), 10 KB is threshold for free Algolia usage,
+20 KB for paid for details: https://www.algolia.com/doc/faq/basics/is-there-a-size-limit-for-my-index-records/}
 
 \item{encoding}{encoding (default: "UTF-8")}
 
