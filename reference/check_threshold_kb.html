@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • algoliar</title>
+<title>Check Algolia Threshold KB — check_threshold_kb • algoliar</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -36,7 +36,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Check Algolia Threshold KB — check_threshold_kb" />
+
+<meta property="og:description" content="Check Algolia Threshold KB" />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -53,7 +56,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -121,90 +124,50 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Check Algolia Threshold KB</h1>
+    <small class="dont-index">Source: <a href='https://github.com/KWB-R/algoliar/blob/master/R/check_threshold_kb.R'><code>R/check_threshold_kb.R</code></a></small>
+    <div class="hidden name"><code>check_threshold_kb.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    
+    <p>Check Algolia Threshold KB</p>
+    
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
-
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="algolia_content.html">algolia_content()</a></code> </p>
-        </td>
-        <td><p>Get Algolia "content"</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="algolia_delete_index.html">algolia_delete_index()</a></code> </p>
-        </td>
-        <td><p>Delete Algolia Index</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="algolia_get.html">algolia_get()</a></code> </p>
-        </td>
-        <td><p>Algolia "GET"</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="algolia_post_batch.html">algolia_post_batch()</a></code> </p>
-        </td>
-        <td><p>Performs Algolia Post Batch</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="check_threshold_kb.html">check_threshold_kb()</a></code> </p>
-        </td>
-        <td><p>Check Algolia Threshold KB</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_config.html">create_config()</a></code> </p>
-        </td>
-        <td><p>Create Algolia Configuration</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="prepare_batch_json.html">prepare_batch_json()</a></code> </p>
-        </td>
-        <td><p>Pepare Batch Json</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="read_index_json.html">read_index_json()</a></code> </p>
-        </td>
-        <td><p>Read Index.Json</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="read_index_list.html">read_index_list()</a></code> </p>
-        </td>
-        <td><p>Read Index.Json As List</p></td>
-      </tr>
-    </tbody>
+    <pre class="usage"><span class='fu'>check_threshold_kb</span>(<span class='no'>index_list</span>, <span class='kw'>threshold_kb</span> <span class='kw'>=</span> <span class='fl'>10</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>index_list</th>
+      <td><p>as retrieved by algoliar::read_index_list()</p></td>
+    </tr>
+    <tr>
+      <th>threshold_kb</th>
+      <td><p>(default: 10), 10 KB is threshold for free Algolia usage,
+20 KB for paid for details: https://www.algolia.com/doc/faq/basics/is-there-a-size-limit-for-my-index-records/</p></td>
+    </tr>
     </table>
-  </div>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p>index_list respecting Algolia threshold KB, by reducing the "content"
+length accordingly</p>
+    
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
-    </ul>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+          </ul>
+
   </div>
 </div>
 

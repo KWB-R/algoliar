@@ -137,7 +137,8 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>prepare_batch_json</span>(<span class='kw'>config</span> <span class='kw'>=</span> <span class='fu'><a href='create_config.html'>create_config</a></span>(), <span class='kw'>encoding</span> <span class='kw'>=</span> <span class='st'>"UTF-8"</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>prepare_batch_json</span>(<span class='kw'>config</span> <span class='kw'>=</span> <span class='fu'><a href='create_config.html'>create_config</a></span>(), <span class='kw'>threshold_kb</span> <span class='kw'>=</span> <span class='fl'>10</span>,
+  <span class='kw'>encoding</span> <span class='kw'>=</span> <span class='st'>"UTF-8"</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -146,6 +147,11 @@
       <th>config</th>
       <td><p>config as retrieved by create_config() (default:
 create_config())</p></td>
+    </tr>
+    <tr>
+      <th>threshold_kb</th>
+      <td><p>(default: 10), 10 KB is threshold for free Algolia usage,
+20 KB for paid for details: https://www.algolia.com/doc/faq/basics/is-there-a-size-limit-for-my-index-records/</p></td>
     </tr>
     <tr>
       <th>encoding</th>
