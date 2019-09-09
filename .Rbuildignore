@@ -2,11 +2,12 @@
 ^docs$
 ^_pkgdown\.yml$
 ^LICENSE\.md$
-^.travis\.yml$
+^\.travis\.yml$
 ^.gitlab-ci\.yml$
 ^appveyor\.yml$
-^index\.Rmd$
+^index\.md$
 ^README\.md$
 ^R/\.setup\.R$
 ^.*\.Rproj$
 ^\.Rproj\.user$
+

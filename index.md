@@ -8,7 +8,7 @@ Simple Access to Algolia Search [REST API](https://www.algolia.com/doc/rest-api/
 
 ## Installation
 
-```{r echo = TRUE, eval = FALSE}
+```r
 #Sys.setenv(GITHUB_PAT = "mysecret_access_token")
 #install.packages("remotes", repos = "https://cloud.r-project.org")
 remotes::install_github("KWB-R/algoliar")
