@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tutorial • algoliar</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><!-- docsearch --><script src="../docsearch.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/docsearch.js/2.6.1/docsearch.min.css" integrity="sha256-QOSRU/ra9ActyXkIBbiIB144aDBdtvXBcNc3OTNuX/Q=" crossorigin="anonymous">
 <link href="../docsearch.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script><meta property="og:title" content="Tutorial">
@@ -40,7 +41,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -66,12 +67,12 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/KWB-R/algoliar">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
       </ul>
-<form class="navbar-form navbar-right" role="search">
+<form class="navbar-form navbar-right hidden-xs hidden-sm" role="search">
         <div class="form-group">
           <input type="search" class="form-control" name="search-input" id="search-input" placeholder="Search..." aria-label="Search for..." autocomplete="off">
 </div>
@@ -85,13 +86,14 @@
 <!--/.navbar -->
 
       
+
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1>Tutorial</h1>
                         <h4 class="author">Michael Rustler</h4>
             
-            <h4 class="date">2019-05-22</h4>
+            <h4 class="date">2019-09-09</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/KWB-R/algoliar/blob/master/vignettes/tutorial.Rmd"><code>vignettes/tutorial.Rmd</code></a></small>
       <div class="hidden name"><code>tutorial.Rmd</code></div>
@@ -106,7 +108,7 @@
 <div id="interactive-use" class="section level3">
 <h3 class="hasAnchor">
 <a href="#interactive-use" class="anchor"></a>Interactive Use</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">config &lt;-<span class="st"> </span>algoliar<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/algoliar/topics/create_config">create_config</a></span>(<span class="dt">path_index_json =</span> <span class="st">"path_to_your_index.json"</span>, </a>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">config &lt;-<span class="st"> </span>algoliar<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/algoliar/man/create_config.html">create_config</a></span>(<span class="dt">path_index_json =</span> <span class="st">"path_to_your_index.json"</span>, </a>
 <a class="sourceLine" id="cb1-2" data-line-number="2">                                  <span class="dt">app_id =</span> <span class="st">"your_algolia_application_id"</span>,</a>
 <a class="sourceLine" id="cb1-3" data-line-number="3">                                  <span class="dt">api_key =</span> <span class="st">"your_algolia_api_key"</span>,</a>
 <a class="sourceLine" id="cb1-4" data-line-number="4">                                  <span class="dt">index_name =</span> <span class="st">"your_algolia_index_name"</span>)</a></code></pre></div>
@@ -117,7 +119,7 @@
 <p>Using environment variables is necessary if continious integration services (e.g. <a href="https://travis.org">Travis</a>, <a href="https://appveyor.com">Appveyor</a> or <a href="https://about.gitlab.com/product/continuous-integration/">GitLab CI</a>). In this case you need to specify: - <code>algolia_app_id</code>: application id - <code>algolia_api_key</code>: api key with sufficient rights (created in Algolia dashboard) - <code>algolia_index_name</code>: index name (created in Algolia dashboard)</p>
 <p>All three are defined / created in the <a href="https://www.algolia.com/doc/guides/getting-started/quick-start/tutorials/getting-started-with-the-dashboard/">Algolia dashboard</a>.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Sys.setenv">Sys.setenv</a></span>(<span class="dt">algolia_app_id =</span> <span class="st">"your_algolia_application_id"</span>,</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/Sys.setenv.html">Sys.setenv</a></span>(<span class="dt">algolia_app_id =</span> <span class="st">"your_algolia_application_id"</span>,</a>
 <a class="sourceLine" id="cb2-3" data-line-number="3">           <span class="dt">algolia_api_key =</span> <span class="st">"your_algolia_api_key"</span>,</a>
 <a class="sourceLine" id="cb2-4" data-line-number="4">           <span class="dt">algolia_index_name =</span> <span class="st">"your_algolia_index_name"</span>)</a></code></pre></div>
 <p>Finally only one parameter is not not explicitly defined yet. It is the path to to <code>index.json</code> that should be uploaded to Algolia. We use the <a href="https://algolia.com">Algolia</a> search in tandem with the <a href="https://gohugo.io">Hugo</a> theme <a href="https://sourcethemes.com/academic">Academic</a>. Thus the default value is <code>public/index.json</code>, which usually is the standard deploy location after generating<br>
@@ -125,10 +127,10 @@ the website with <code>blogdown::build_site()</code>.</p>
 <p>In this case there is no need to call the <code>algolia::create_config()</code> function explicitly to upload the <code>index.json</code> to Algolia using the function <code><a href="../reference/algolia_post_batch.html">algoliar::algolia_post_batch()</a></code>.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2">## Upload new index.json to algolia, no need to call algoliar::create_config() </a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">algoliar<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/algoliar/topics/algolia_post_batch">algolia_post_batch</a></span>()</a></code></pre></div>
+<a class="sourceLine" id="cb3-3" data-line-number="3">algoliar<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/algoliar/man/algolia_post_batch.html">algolia_post_batch</a></span>()</a></code></pre></div>
 <p>In cases where this default is not correct only the <code>path_index_json</code> needs to be set to the correct path/url as shown below:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">## Upload new index.json to algolia, calling algoliar::create_config() required!</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">algoliar<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/algoliar/topics/algolia_post_batch">algolia_post_batch</a></span>(algoliar<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/algoliar/topics/create_config">create_config</a></span>(<span class="st">"mypath/index.json"</span>))</a></code></pre></div>
+<a class="sourceLine" id="cb4-2" data-line-number="2">algoliar<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/algoliar/man/algolia_post_batch.html">algolia_post_batch</a></span>(algoliar<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/algoliar/man/create_config.html">create_config</a></span>(<span class="st">"mypath/index.json"</span>))</a></code></pre></div>
 <p>Using the R package <strong>algoliar</strong> now automates the formerly manual workflow, which is described in detail in the <a href="https://sourcethemes.com/academic/docs/search/#algolia">documentation</a> of the Hugo theme Academic.</p>
 </div>
 </div>
@@ -138,25 +140,26 @@ the website with <code>blogdown::build_site()</code>.</p>
 <div id="get" class="section level3">
 <h3 class="hasAnchor">
 <a href="#get" class="anchor"></a>Get</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">algoliar<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/algoliar/topics/algolia_get">algolia_get</a></span>(config)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">algoliar<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/algoliar/man/algolia_get.html">algolia_get</a></span>(config)</a></code></pre></div>
 </div>
 <div id="content" class="section level3">
 <h3 class="hasAnchor">
 <a href="#content" class="anchor"></a>Content</h3>
 <p>Content of “index.json” at <a href="https://algolia.com">Algolia</a> as data.frame.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">algoliar<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/algoliar/topics/algolia_content">algolia_content</a></span>(config)</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">algoliar<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/algoliar/man/algolia_content.html">algolia_content</a></span>(config)</a></code></pre></div>
 </div>
 </div>
 <div id="delete-index" class="section level2">
 <h2 class="hasAnchor">
 <a href="#delete-index" class="anchor"></a>Delete Index</h2>
 <p>For completly deleting an Algolia “index_name” run:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">algoliar<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/algoliar/topics/algolia_delete_index">algolia_delete_index</a></span>(config)</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">algoliar<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/algoliar/man/algolia_delete_index.html">algolia_delete_index</a></span>(config)</a></code></pre></div>
 <p>This means that it needs to be created manually again from the Algolia dashboard, since a creation method is not implemented in the R Package</p>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+
         <div id="tocnav">
       <h2 class="hasAnchor">
 <a href="#tocnav" class="anchor"></a>Contents</h2>
@@ -171,13 +174,15 @@ the website with <code>blogdown::build_site()</code>.</p>
 </div>
 
 
+
       <footer><div class="copyright">
   <p>Developed by <a href="https://mrustl.de">Michael Rustler</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.0.</p>
 </div>
+
       </footer>
 </div>
 
